@@ -15,6 +15,9 @@ repo = 'scrooloose/nerdtree'
 # With persistent window accross tabs
 [[plugins]]
 repo = 'jistr/vim-nerdtree-tabs'
+# With Git status
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
 
 # 2020/9/16 toml syntax
 [[plugins]]
