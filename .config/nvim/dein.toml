@@ -1,0 +1,21 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'dag/vim-fish'
+
+# 2020/9/4 Language serever plugin
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+
+# 2020/9/16 File tree
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+# With persistent window accross tabs
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
+
+# 2020/9/16 toml syntax
+[[plugins]]
+repo = 'cespare/vim-toml'
