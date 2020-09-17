@@ -22,3 +22,9 @@ repo = 'Xuyuanp/nerdtree-git-plugin'
 # 2020/9/16 toml syntax
 [[plugins]]
 repo = 'cespare/vim-toml'
+
+# Color schemme
+# https://cocopon.me/blog/2013/02/hybrid/
+# https://github.com/w0ng/vim-hybrid
+[[plugins]]
+repo = "w0ng/vim-hybrid"
