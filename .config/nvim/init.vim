@@ -45,6 +45,9 @@ set backspace=indent,eol,start
 syntax on
 set nowrap
 set ruler showcmd
+" https://gist.github.com/Starefossen/5957088
+set splitbelow splitright
+
 noremap <ESC><ESC> :noh<CR>
 noremap j gj
 noremap k gk
