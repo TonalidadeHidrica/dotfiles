@@ -29,6 +29,9 @@ repo = 'cespare/vim-toml'
 [[plugins]]
 repo = "w0ng/vim-hybrid"
 
+[[plugins]]
+repo = "joshdick/onedark.vim"
+
 # Git diff highlight
 [[plugins]]
 repo = "airblade/vim-gitgutter"
