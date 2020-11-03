@@ -35,3 +35,7 @@ repo = "joshdick/onedark.vim"
 # Git diff highlight
 [[plugins]]
 repo = "airblade/vim-gitgutter"
+
+# SaTySFi highlight
+[[plugins]]
+repo = "qnighy/satysfi.vim"
