@@ -39,3 +39,7 @@ repo = "airblade/vim-gitgutter"
 # SaTySFi highlight
 [[plugins]]
 repo = "qnighy/satysfi.vim"
+
+# Search for selection
+[[plugins]]
+repo = "bronson/vim-visual-star-search"
