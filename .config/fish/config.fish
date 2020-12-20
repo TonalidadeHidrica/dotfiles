@@ -4,7 +4,7 @@ if [ -e $DIRECTORIES_FISH ]
 end
 
 # pipenv の補完
-eval (pipenv --completion)
+# eval (pipenv --completion)
 
 # これ必要？
 # >>> conda initialize >>>
