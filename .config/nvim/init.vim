@@ -112,11 +112,11 @@ highlight SpecialKey ctermbg=None ctermfg=239 guibg=NONE guifg=#333333
 " https://stackoverflow.com/questions/32865744/vim-syntax-and-latex-math-inside-markdown
 " This gets rid of the nasty _ italic bug in tpope's vim-markdown
 " block $$...$$
-syn region math start=/\$\$/ end=/\$\$/
+au Syntax markdown syn region markdownTexMath start=/\$\$/ end=/\$\$/
 " inline math
-syn match math '\$[^$].\{-}\$'
+au Syntax markdown syn match markdownTexMath '\$[^$].\{-}\$'
 " actually highlight the region we defined as "math"
-hi link math Statement
+hi link markdownTexMath Statement
 
 " 拡張子に応じて filetype を変更
 " https://stackoverflow.com/a/28117335
