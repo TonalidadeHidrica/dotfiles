@@ -318,3 +318,6 @@ function! EditorialMode()
 	set wrap
 	wincmd h
 endfunction
+
+" Show hidden files in NerdTree by default
+let NERDTreeShowHidden=1
