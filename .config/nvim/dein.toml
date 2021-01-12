@@ -51,3 +51,7 @@ repo = 'editorconfig/editorconfig-vim'
 # Capture Ex output to another window
 [[plugins]]
 repo = 'tyru/capture.vim'
+
+# Highlight Wolfram Script
+[[plugins]]
+repo = 'voldikss/vim-mma'
