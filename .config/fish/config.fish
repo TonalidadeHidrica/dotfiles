@@ -36,8 +36,8 @@ set fish_escape_delay_ms 10
 alias vim=nvim
 alias ovim='\\vim'
 
-# Fish
-set -g fish_user_paths "/usr/local/opt/libpq/bin" $fish_user_paths
+# # Fish
+# set -g fish_user_paths "/usr/local/opt/libpq/bin" $fish_user_paths
 
 # opam configuration
 source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
