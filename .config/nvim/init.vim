@@ -96,7 +96,7 @@ set cindent noexpandtab
 
 augroup fileTypeIndent
   autocmd!
-  autocmd FileType python,julia setlocal shiftwidth=4 softtabstop=4 expandtab
+  autocmd FileType python,julia,haskell setlocal shiftwidth=4 softtabstop=4 expandtab
 augroup end
 
 " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^
