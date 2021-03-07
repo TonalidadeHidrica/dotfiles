@@ -118,6 +118,10 @@ au Syntax markdown syn match markdownTexMath '\$[^$].\{-}\$'
 " actually highlight the region we defined as "math"
 hi link markdownTexMath Statement
 
+" markdown 特有の末尾の空白(改行を意味する(は？))をハイライト
+au Syntax markdown syntax match markdownWhitespaceNewline /  \+$/
+highlight link markdownWhitespaceNewline DiffAdd
+
 " 拡張子に応じて filetype を変更
 " https://stackoverflow.com/a/28117335
 " Set the filetype based on the file's extension, overriding any
