@@ -292,6 +292,10 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " Format
 nnoremap <silent><nowait> <space>f :Format<CR>
 
+" Show function signature in arguments list
+" https://github.com/neoclide/coc.nvim/issues/2202
+inoremap <C-P> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
+
 " Coc 用設定 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 " カラースキーム
