@@ -1,5 +1,6 @@
 {
 	"coc.preferences.jumpCommand": "tab drop",
 	"rust-analyzer.cargo.loadOutDirsFromCheck": true,
-	"rust-analyzer.procMacro.enable": true
+	"rust-analyzer.procMacro.enable": true,
+	"rust-analyzer.diagnostics.disabled": ["unlinked-file"]
 }
