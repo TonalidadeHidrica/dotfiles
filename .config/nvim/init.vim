@@ -254,8 +254,10 @@ omap ac <Plug>(coc-classobj-a)
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
+" nmap <silent> <C-s> <Plug>(coc-range-select)
+" xmap <silent> <C-s> <Plug>(coc-range-select)
+" nmap <silent> <C-S> <Plug>(coc-range-select-backward)
+" xmap <silent> <C-S> <Plug>(coc-range-select-backward)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
