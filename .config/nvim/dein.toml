@@ -55,3 +55,8 @@ repo = 'tyru/capture.vim'
 # Highlight Wolfram Script
 [[plugins]]
 repo = 'voldikss/vim-mma'
+
+# treesitter
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+merged = 0
