@@ -108,23 +108,6 @@ set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
 au ColorScheme,VimEnter * highlight NonText    ctermbg=None ctermfg=239 guibg=NONE guifg=#333333
 au ColorScheme,VimEnter * highlight SpecialKey ctermbg=None ctermfg=239 guibg=NONE guifg=#333333
 
-" Markdown ファイル中の TeX 数式のハイライトをまともにする
-" https://stackoverflow.com/questions/32865744/vim-syntax-and-latex-math-inside-markdown
-" This gets rid of the nasty _ italic bug in tpope's vim-markdown
-" block $$...$$
-au Syntax markdown syn region markdownTexMath start=/\$\$/ end=/\$\$/
-" inline math
-au Syntax markdown syn match markdownTexMath '\$[^$].\{-}\$'
-" actually highlight the region we defined as "math"
-au ColorScheme,VimEnter * hi link markdownTexMath Statement
-
-" markdown 特有の末尾の空白(改行を意味する(は？))をハイライト
-au Syntax markdown syntax match markdownWhitespaceNewline /  \+$/
-au ColorScheme * hi link markdownWhitespaceNewline DiffAdd
-
-" markdown のコードを色付け
-au ColorScheme,VimEnter * hi link markdownCode markdownCodeDelimiter
-
 " 拡張子に応じて filetype を変更
 " https://stackoverflow.com/a/28117335
 " Set the filetype based on the file's extension, overriding any
