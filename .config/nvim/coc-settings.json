@@ -2,5 +2,13 @@
 	"coc.preferences.jumpCommand": "tab drop",
 	"rust-analyzer.cargo.loadOutDirsFromCheck": true,
 	"rust-analyzer.procMacro.enable": true,
-	"rust-analyzer.diagnostics.disabled": ["unlinked-file"]
+	"rust-analyzer.diagnostics.disabled": ["unlinked-file"],
+	"languageserver": {
+		"haskell": {
+			"command": "haskell-language-server-wrapper",
+			"args": ["--lsp"],
+			"rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+			"filetypes": ["haskell", "lhaskell"]
+		}
+	}
 }
