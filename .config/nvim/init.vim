@@ -119,6 +119,8 @@ au BufRead,BufNewFile *.tex set filetype=tex
 " https://unix.stackexchange.com/a/180927
 noremap <S-k> <Nop>
 
+" Ex モードに入らないようにする
+nnoremap Q <Nop>
 
 " Coc 用設定 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 " TextEdit might fail if hidden is not set.
