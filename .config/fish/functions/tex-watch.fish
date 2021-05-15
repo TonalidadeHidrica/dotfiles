@@ -12,6 +12,16 @@ function tex-watch
 			continue
 		end
 
+		# # If you want to enable BibTeX, comment out the following section.
+		#
+		# pbibtex $filename
+		# if [ $status -ne 0 ]
+		# 	set_color red
+		# 	echo "bibtex failed."
+		# 	set_color normal
+		# 	continue
+		# end
+
 		dvipdfmx $filename
 
 		if [ $skim_open -eq 0 -a -e $filename.pdf ]
