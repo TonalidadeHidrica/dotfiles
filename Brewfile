@@ -77,6 +77,7 @@ brew "lsyncd"
 brew "luarocks"
 brew "luv"
 brew "lynx"
+brew "mas"
 brew "maven"
 brew "maxima"
 brew "mercurial"
@@ -183,3 +184,10 @@ cask "virtualbox"
 cask "visual-studio"
 cask "visual-studio-code"
 cask "xld"
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "ToyViewer", id: 414298354
+mas "Xcode", id: 497799835
