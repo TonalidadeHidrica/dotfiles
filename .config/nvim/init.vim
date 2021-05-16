@@ -61,16 +61,16 @@ set termguicolors
 
 command! -nargs=0 GradleDependencyToKts call GradleDependencyToKts()
 function! GradleDependencyToKts()
-	s/: \?/ = /g
-	s/'/"/g
-	s/\w\+\zs /(/
-	s/$/)/g
+  s/: \?/ = /g
+  s/'/"/g
+  s/\w\+\zs /(/
+  s/$/)/g
 endfunction
 
 " Spellcheck
 set spelllang=en,cjk
 augroup spellcheckConfig
-	autocmd FileType tex,plaintex setlocal spell wrap
+  autocmd FileType tex,plaintex setlocal spell wrap
 augroup end
 
 " v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v
@@ -97,7 +97,8 @@ set cindent noexpandtab
 augroup fileTypeIndent
   autocmd!
   autocmd FileType python,julia setlocal shiftwidth=4 softtabstop=4 expandtab
-	autocmd FileType haskell setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
+  autocmd FileType haskell setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
+  autocmd FileType vim setlocal expandtab
 augroup end
 
 " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^
@@ -315,10 +316,10 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 function! EditorialMode()
-	set wrap spell
-	wincmd l
-	set wrap
-	wincmd h
+  set wrap spell
+  wincmd l
+  set wrap
+  wincmd h
 endfunction
 
 " Show hidden files in NerdTree by default
@@ -368,7 +369,7 @@ let g:python3_host_prog=$HOME.'/.neovim-python-envs/3/.venv/bin/python'
 " function! OpamConfMerlin()
 "   let l:dir = s:opam_share_dir . "/merlin/vim"
 "   execute "set rtp+=" . l:dir
-" 	echo &rtp
+"   echo &rtp
 " endfunction
 " let s:opam_configuration['merlin'] = function('OpamConfMerlin')
 " 
