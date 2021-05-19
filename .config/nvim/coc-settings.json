@@ -9,6 +9,13 @@
 			"args": ["--lsp"],
 			"rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
 			"filetypes": ["haskell", "lhaskell"]
-		}
+		},
+		// ,
+		// "satysfi-ls": {
+		// 	"command": "~/dev/git/com/github/monaqa/satysfi-language-server/target/debug/satysfi-language-server",
+		// 	"args": ["-w"],
+		// 	"filetypes": ["satysfi"],
+		// 	"trace.server": "verbose"
+		// }
 	}
 }
