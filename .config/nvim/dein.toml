@@ -60,3 +60,7 @@ repo = 'voldikss/vim-mma'
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 merged = 0
+
+# JSONC support (for coc-settings.json)
+[[plugins]]
+repo = 'kevinoid/vim-jsonc'
