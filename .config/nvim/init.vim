@@ -288,6 +288,12 @@ nnoremap <silent><nowait> <space>f :Format<CR>
 " https://github.com/neoclide/coc.nvim/issues/2202
 inoremap <C-P> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
 
+" Extensions to install
+let g:coc_global_extensions = [
+      \ 'coc-json',
+      \ 'coc-rust-analyzer',
+      \ 'coc-pyright'
+      \ ]
 " Coc 用設定 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 " カラースキーム
