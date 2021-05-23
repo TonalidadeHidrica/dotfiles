@@ -124,6 +124,11 @@ noremap <S-k> <Nop>
 " Ex モードに入らないようにする
 nnoremap Q <Nop>
 
+" Tab 補完で、いきなりすべての path を補完しない
+" https://stackoverflow.com/a/526940/14795593
+set wildmode=longest,list,full
+set wildmenu
+
 " Coc 用設定 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 " TextEdit might fail if hidden is not set.
 set hidden
