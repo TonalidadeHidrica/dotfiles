@@ -38,7 +38,8 @@ repo = "airblade/vim-gitgutter"
 
 # SaTySFi highlight
 [[plugins]]
-repo = "qnighy/satysfi.vim"
+# repo = "qnighy/satysfi.vim"
+repo = "~/dev/git/com/github/TonalidadeHidrica/satysfi.vim/"
 
 # Search for selection
 [[plugins]]
