@@ -65,3 +65,7 @@ merged = 0
 # JSONC support (for coc-settings.json)
 [[plugins]]
 repo = 'kevinoid/vim-jsonc'
+
+# Show the entire stack of highlight stack
+[[plugins]]
+repo = 'gerw/vim-HiLinkTrace'
