@@ -398,3 +398,5 @@ let g:python3_host_prog=$HOME.'/.neovim-python-envs/3/.venv/bin/python'
 " 上のやつが遅いので、代用
 " TODO opam バージョンとかが変わると死ぬ
 set rtp+=$HOME/.opam/ocaml-base-compiler.4.10.0/share/merlin/vim
+" Target is displayed in a new tab
+let g:merlin_split_method = "tab"
