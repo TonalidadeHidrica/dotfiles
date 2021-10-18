@@ -297,7 +297,8 @@ inoremap <C-P> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
 let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-rust-analyzer',
-      \ 'coc-pyright'
+      \ 'coc-pyright',
+      \ 'coc-tsserver',
       \ ]
 " Coc 用設定 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
