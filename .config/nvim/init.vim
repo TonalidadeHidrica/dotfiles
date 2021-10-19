@@ -198,7 +198,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K <cmd>call <SID>show_documentation()<CR>
 vnoremap <silent> K <cmd>call <SID>show_documentation()<CR>
 " vnoremap <silent> <buffer> K <cmd>call show_documentation()<CR>
 
