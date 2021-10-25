@@ -3,6 +3,11 @@ if [ -e $DIRECTORIES_FISH ]
 	source $DIRECTORIES_FISH
 end
 
+set LOCAL_FISH (dirname (status --current-filename))/local.fish
+if [ -e $LOCAL_FISH ]
+	source $LOCAL_FISH
+end
+
 # pipenv の補完
 # eval (pipenv --completion)
 
