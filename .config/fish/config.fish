@@ -3,17 +3,26 @@ if [ -e $DIRECTORIES_FISH ]
 	source $DIRECTORIES_FISH
 end
 
+set LOCAL_FISH (dirname (status --current-filename))/local.fish
+if [ -e $LOCAL_FISH ]
+	source $LOCAL_FISH
+end
+
 # pipenv の補完
 # eval (pipenv --completion)
 
 # これ必要？
+if [ -e /usr/local/Caskroom/miniconda/4.6.14/miniconda3/bin/conda ]
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 eval (eval /usr/local/Caskroom/miniconda/4.6.14/miniconda3/bin/conda "shell.fish" "hook" $argv)
 # <<< conda initialize <<<
+end
 
-# これはなに（config.fishを書くときはちゃんと記録残してくれ）
-source (conda info --root)/etc/fish/conf.d/conda.fish
+if which conda > /dev/null
+  # これはなに（config.fishを書くときはちゃんと記録残してくれ）
+  source (conda info --root)/etc/fish/conf.d/conda.fish
+end
 
 # ssh-agent の環境変数を固定する
 set SSH_AUTH_SOCK ~/.ssh/ssh-agent-socket
@@ -39,5 +48,7 @@ alias ovim='\\vim'
 # # Fish
 # set -g fish_user_paths "/usr/local/opt/libpq/bin" $fish_user_paths
 
-# opam configuration
-source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+if [ -e /.opam/opam-init/init.fish ]
+  # opam configuration
+  source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+end
