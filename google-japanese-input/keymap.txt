@@ -2,7 +2,7 @@ status	key	command
 Prediction	Ctrl Delete	DeleteSelectedCandidate
 Suggestion	Down	PredictAndConvert
 Suggestion	Shift Enter	CommitFirstSuggestion
-DirectInput	Eisu	IMEOn
+DirectInput	Eisu	InputModeHiragana
 DirectInput	F13	IMEOn
 DirectInput	Hankaku/Zenkaku	IMEOn
 DirectInput	Henkan	Reconvert
@@ -11,12 +11,12 @@ DirectInput	Katakana	IMEOn
 Precomposition	Backspace	Revert
 Precomposition	Ctrl Backspace	Undo
 Precomposition	Ctrl Shift Space	InsertFullSpace
-Precomposition	Eisu	ToggleAlphanumericMode
+Precomposition	Eisu	InputModeHiragana
 Precomposition	Hankaku/Zenkaku	IMEOff
 Precomposition	Henkan	Reconvert
 Precomposition	Hiragana	InputModeHiragana
 Precomposition	Katakana	InputModeFullKatakana
-Precomposition	Muhenkan	InputModeSwitchKanaType
+Precomposition	Muhenkan	IMEOff
 Precomposition	Shift Muhenkan	ToggleAlphanumericMode
 Precomposition	Shift Space	InsertAlternateSpace
 Precomposition	Space	InsertSpace
@@ -49,7 +49,6 @@ Composition	Ctrl x	MoveCursorToEnd
 Composition	Ctrl z	Cancel
 Composition	Delete	Delete
 Composition	Down	MoveCursorToEnd
-Composition	Eisu	ToggleAlphanumericMode
 Composition	End	MoveCursorToEnd
 Composition	Enter	Commit
 Composition	ESC	Cancel
@@ -104,7 +103,6 @@ Conversion	Ctrl x	ConvertNext
 Conversion	Ctrl z	Cancel
 Conversion	Delete	Cancel
 Conversion	Down	ConvertNext
-Conversion	Eisu	ToggleAlphanumericMode
 Conversion	End	SegmentFocusLast
 Conversion	Enter	Commit
 Conversion	ESC	Cancel
