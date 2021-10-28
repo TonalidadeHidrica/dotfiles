@@ -410,8 +410,10 @@ let g:merlin_split_method = "tab"
 " 参考: https://github.com/equalsraf/win32yank
 " https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
 if has("unix")
+  if filereadable("/proc/version")
     let lines = readfile("/proc/version")
     if lines[0] =~ "microsoft"
       set cb=unnamedplus
     endif
+  endif
 endif
