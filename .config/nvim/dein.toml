@@ -69,3 +69,11 @@ repo = 'kevinoid/vim-jsonc'
 # Show the entire stack of highlight stack
 [[plugins]]
 repo = 'gerw/vim-HiLinkTrace'
+
+# Extend textobj
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+# Use an arbitrary character as a textobj separator
+[[plugins]]
+repo = 'thinca/vim-textobj-between'
