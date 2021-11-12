@@ -69,3 +69,7 @@ repo = 'kevinoid/vim-jsonc'
 # Show the entire stack of highlight stack
 [[plugins]]
 repo = 'gerw/vim-HiLinkTrace'
+
+# Plugin for hilighting RDF
+[[plugins]]
+repo = 'niklasl/vim-rdf'
