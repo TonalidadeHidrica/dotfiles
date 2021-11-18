@@ -2,7 +2,7 @@ status	key	command
 Prediction	Ctrl Delete	DeleteSelectedCandidate
 Suggestion	Down	PredictAndConvert
 Suggestion	Shift Enter	CommitFirstSuggestion
-DirectInput	Eisu	IMEOn
+DirectInput	Eisu	InputModeHiragana
 DirectInput	F13	IMEOn
 DirectInput	Hankaku/Zenkaku	IMEOn
 DirectInput	Henkan	Reconvert

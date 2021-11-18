@@ -1,4 +1,8 @@
 {
+	"diagnostic.floatConfig": {
+		"border": true,
+		"highlight": "CocDiagnosticFloating"
+	},
 	"coc.preferences.jumpCommand": "tab drop",
 	"rust-analyzer.cargo.loadOutDirsFromCheck": true,
 	"rust-analyzer.procMacro.enable": true,

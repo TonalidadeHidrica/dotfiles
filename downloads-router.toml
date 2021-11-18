@@ -1,0 +1,10 @@
+dr_filename_map = { }
+dr_order = [ "filename", "mime", "referrer" ]
+dr_global_ref_folders = true
+
+[dr_mime_map]
+"application/x-bittorrent" = "t/"
+
+[dr_referrer_map]
+"*.googleusercontent.com" = "drive.google.com/"
+

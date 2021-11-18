@@ -73,3 +73,11 @@ repo = 'gerw/vim-HiLinkTrace'
 # Plugin for hilighting RDF
 [[plugins]]
 repo = 'niklasl/vim-rdf'
+
+# Extend textobj
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+# Use an arbitrary character as a textobj separator
+[[plugins]]
+repo = 'thinca/vim-textobj-between'
