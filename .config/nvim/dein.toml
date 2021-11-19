@@ -70,6 +70,10 @@ repo = 'kevinoid/vim-jsonc'
 [[plugins]]
 repo = 'gerw/vim-HiLinkTrace'
 
+# Plugin for hilighting RDF
+[[plugins]]
+repo = 'niklasl/vim-rdf'
+
 # Extend textobj
 [[plugins]]
 repo = 'kana/vim-textobj-user'
