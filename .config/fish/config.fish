@@ -55,3 +55,7 @@ set HB_CNF_HANDLER (brew --repository)"/Library/Taps/homebrew/homebrew-command-n
 if test -f $HB_CNF_HANDLER
    source $HB_CNF_HANDLER
 end
+
+# PHPBrew
+# https://github.com/phpbrew/phpbrew/blob/master/README.ja.md
+source /Users/seasellsheshell/.phpbrew/phpbrew.fish
