@@ -302,6 +302,8 @@ let g:coc_global_extensions = [
       \ 'coc-rust-analyzer',
       \ 'coc-pyright',
       \ 'coc-tsserver',
+      \ 'coc-docker',
+      \ 'coc-yaml',
       \ ]
 " Coc 用設定 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
