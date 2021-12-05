@@ -37,8 +37,10 @@ alias less="less -R"
 set fish_escape_delay_ms 10
 
 # さよならvim、こんにちはneovim
-alias vim=nvim
-alias ovim='\\vim'
+if type -q nvim
+  alias vim=nvim
+  alias ovim='\\vim'
+end
 
 # # Fish
 # set -g fish_user_paths "/usr/local/opt/libpq/bin" $fish_user_paths
