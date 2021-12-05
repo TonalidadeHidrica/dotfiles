@@ -60,4 +60,6 @@ end
 
 # PHPBrew
 # https://github.com/phpbrew/phpbrew/blob/master/README.ja.md
-source /Users/seasellsheshell/.phpbrew/phpbrew.fish
+if [ -e /Users/seasellsheshell/.phpbrew/phpbrew.fish ]
+	source /Users/seasellsheshell/.phpbrew/phpbrew.fish
+end
