@@ -6,19 +6,6 @@ end
 # pipenv の補完
 # eval (pipenv --completion)
 
-# これ必要？
-if [ -e /usr/local/Caskroom/miniconda/4.6.14/miniconda3/bin/conda ]
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval (eval /usr/local/Caskroom/miniconda/4.6.14/miniconda3/bin/conda "shell.fish" "hook" $argv)
-# <<< conda initialize <<<
-end
-
-if which conda > /dev/null
-  # これはなに（config.fishを書くときはちゃんと記録残してくれ）
-  source (conda info --root)/etc/fish/conf.d/conda.fish
-end
-
 # ssh-agent の環境変数を固定する
 set SSH_AUTH_SOCK ~/.ssh/ssh-agent-socket
 export SSH_AUTH_SOCK  # ←この行がないと肝心の ssh-agent に環境変数が行かないよ！
