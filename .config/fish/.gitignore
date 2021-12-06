@@ -1,0 +1,18 @@
+# The following files are local scope and shuold not be tracked
+/fish_variables
+/local.fish
+
+# The contents in this directory will be managed by fisher and should not be tracked by git...
+/completions/
+/conf.d/
+/functions/
+
+# ...xcept for the following original scripts
+!/functions/editorial-vim.fish
+!/functions/fish_user_key_bindings.fish
+!/functions/gi.fish
+!/functions/git-autoclone.fish
+!/functions/jenv.fish
+!/functions/push-line.fish
+!/functions/ssh-agent-start.fish
+!/functions/tex-watch.fish
