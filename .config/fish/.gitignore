@@ -16,6 +16,7 @@
 !/functions/push-line.fish
 !/functions/ssh-agent-start.fish
 !/functions/tex-watch.fish
+!/functions/pukiwiki-vim.fish
 
 # I'm not sure what files these are
 /fishd.tmp.*
