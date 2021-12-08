@@ -7,7 +7,7 @@
 /conf.d/
 /functions/
 
-# ...xcept for the following original scripts
+# ...except for the following original scripts
 !/functions/editorial-vim.fish
 !/functions/fish_user_key_bindings.fish
 !/functions/gi.fish
@@ -16,3 +16,6 @@
 !/functions/push-line.fish
 !/functions/ssh-agent-start.fish
 !/functions/tex-watch.fish
+
+# I'm not sure what files these are
+/fishd.tmp.*
