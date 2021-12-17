@@ -29,10 +29,7 @@ if type -q nvim
   alias ovim='\\vim'
 end
 
-# # Fish
-# set -g fish_user_paths "/usr/local/opt/libpq/bin" $fish_user_paths
-
-if [ -e /.opam/opam-init/init.fish ]
+if [ -e $HOME/.opam/opam-init/init.fish ]
   # opam configuration
   source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 end
