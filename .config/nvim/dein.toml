@@ -81,3 +81,7 @@ repo = 'kana/vim-textobj-user'
 # Use an arbitrary character as a textobj separator
 [[plugins]]
 repo = 'thinca/vim-textobj-between'
+
+# Syntax highlight for wgsl
+[[plugins]]
+repo = 'DingDean/wgsl.vim'
