@@ -333,9 +333,9 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 function! EditorialMode()
-  set wrap spell
+  set wrap expandtab spell
   wincmd l
-  set wrap
+  set wrap expandtab
   wincmd h
 endfunction
 
