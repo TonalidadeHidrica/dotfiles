@@ -34,15 +34,16 @@ if [ -e $HOME/.opam/opam-init/init.fish ]
   source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 end
 
-# Homebrew Command Not Found
-#https://github.com/Homebrew/homebrew-command-not-found
-# Mac 環境で、存在しないコマンドを打ったときにコマンドの所在を教える (to use this command, install ...)
-if type -q brew
-   set HB_CNF_HANDLER (brew --repository)"/Library/Taps/homebrew/homebrew-command-not-found/handler.fish"
-   if test -f $HB_CNF_HANDLER
-      source $HB_CNF_HANDLER
-   end
-end
+# # Homebrew Command Not Found
+# #https://github.com/Homebrew/homebrew-command-not-found
+# # Mac 環境で、存在しないコマンドを打ったときにコマンドの所在を教える (to use this command, install ...)
+# # 遅すぎるので無効化
+# if type -q brew
+#    set HB_CNF_HANDLER (brew --repository)"/Library/Taps/homebrew/homebrew-command-not-found/handler.fish"
+#    if test -f $HB_CNF_HANDLER
+#       source $HB_CNF_HANDLER
+#    end
+# end
 
 # PHPBrew
 # https://github.com/phpbrew/phpbrew/blob/master/README.ja.md
