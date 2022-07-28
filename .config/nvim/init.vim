@@ -304,6 +304,7 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-docker',
       \ 'coc-yaml',
+      \ 'coc-grammarly',
       \ ]
 " Coc 用設定 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
