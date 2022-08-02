@@ -3,9 +3,9 @@
 /local.fish
 
 # The contents in this directory will be managed by fisher and should not be tracked by git...
-/completions/
-/conf.d/
-/functions/
+/completions/*
+/conf.d/*
+/functions/*
 
 # ...except for the following original scripts
 !/functions/editorial-vim.fish
@@ -17,6 +17,7 @@
 !/functions/ssh-agent-start.fish
 !/functions/tex-watch.fish
 !/functions/pukiwiki-vim.fish
+!/functions/wget-auto.fish
 
 # I'm not sure what files these are
 /fishd.tmp.*
