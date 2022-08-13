@@ -409,14 +409,16 @@ set rtp+=$HOME/.opam/ocaml-base-compiler.4.10.0/share/merlin/vim
 let g:merlin_split_method = "tab"
 
 " WSL 内の vim では unnamedplus を使う
-" Windows 側に win32yank が必要
-" 参考: https://github.com/equalsraf/win32yank
+" Windows 側に win32yank が必要 <= 本当に？
+" https://qiita.com/spiegel-im-spiegel/items/0997f1693a24e3fd3a74
+" https://github.com/equalsraf/win32yank
 " https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
 if has("unix")
   if filereadable("/proc/version")
     let lines = readfile("/proc/version")
     if lines[0] =~ "microsoft"
-      set cb=unnamedplus
+      set clipboard&
+      set clipboard^=unnamedplus
     endif
   endif
 endif
