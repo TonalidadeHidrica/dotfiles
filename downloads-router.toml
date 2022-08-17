@@ -6,5 +6,4 @@ dr_global_ref_folders = true
 "application/x-bittorrent" = "t/"
 
 [dr_referrer_map]
-"*.googleusercontent.com" = "drive.google.com/"
-
+"*.googleusercontent.com" = "com.google.drive/"
