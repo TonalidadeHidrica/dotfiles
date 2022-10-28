@@ -2,7 +2,8 @@ function ssh-agent-start
 	argparse 'f/force' -- $argv
 	or return 1
 
-	if [ -e ~/.ssh/ssh-agent-socket ]
+	ssh-add -l >/dev/null 2>&1
+	if [ $status -ne 2 ]
 		if set -lq _flag_force
 			echo "SSH agent seems to be already running, but starting another process."
 		else
