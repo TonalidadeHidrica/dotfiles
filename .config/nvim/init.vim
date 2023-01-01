@@ -414,3 +414,7 @@ if has("unix")
     endif
   endif
 endif
+
+" vim-markdown の設定
+" 数式を有効に
+let g:vim_markdown_math = 1

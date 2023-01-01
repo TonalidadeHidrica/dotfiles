@@ -1,16 +1,10 @@
-" Markdown ファイル中の TeX 数式のハイライトをまともにする
-" https://stackoverflow.com/questions/32865744/vim-syntax-and-latex-math-inside-markdown
-" This gets rid of the nasty _ italic bug in tpope's vim-markdown
-" block $$...$$
-syn region markdownTexMath start=/\$\$/ end=/\$\$/
-" inline math
-syn match markdownTexMath '\$[^$].\{-}\$'
-" actually highlight the region we defined as "math"
-hi def link markdownTexMath Statement
-
 " markdown 特有の末尾の空白(改行を意味する(は？))をハイライト
-syntax match markdownWhitespaceNewline /  \+$/
-hi def link markdownWhitespaceNewline DiffAdd
+" vim-markdown の助けを借りる
+hi link mkdLineBreak DiffAdd
 
-" markdown のコードを色付け
-hi def link markdownCode markdownCodeDelimiter
+" \\( から始まり \\) で終わる領域、及び \\[ から始まり \\] で終わる領域も、
+" 数式としてハイライトする
+if get(g:, 'vim_markdown_math', 0)
+  syn region mkdMath start="\\\zs\\("  end="\\\\)"  contains=@tex keepend
+  syn region mkdMath start="\\\zs\\\[" end="\\\\\]" contains=@tex keepend
+endif

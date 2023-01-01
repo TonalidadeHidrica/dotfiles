@@ -85,3 +85,9 @@ repo = 'thinca/vim-textobj-between'
 # Syntax highlight for wgsl
 [[plugins]]
 repo = 'DingDean/wgsl.vim'
+
+# 2023/01/01 Seeking for better markdown tool
+[[plugins]]
+repo = 'godlygeek/tabular'
+[[plugins]]
+repo = 'preservim/vim-markdown'
