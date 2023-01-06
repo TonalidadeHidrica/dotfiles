@@ -418,3 +418,5 @@ endif
 " vim-markdown の設定
 " 数式を有効に
 let g:vim_markdown_math = 1
+" 折りたたみを無効に
+let g:vim_markdown_folding_disabled = 1
