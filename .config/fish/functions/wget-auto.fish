@@ -8,6 +8,7 @@ function wget-auto
 	set domains (string split '.' $domain)
 	set reverse_domain (string join '.' $domains[-1..1])
 
+	mkdir -p ~/dl
 	cd ~/dl
 	mkdir -p $reverse_domain
 	cd $reverse_domain
