@@ -1,20 +1,24 @@
-" dein ---------------------------------
-let s:dein_dir = expand('~/.vim/dein')
-let s:toml_dir = expand('~/.config/nvim')
-" dein ---------------------------------
-
 " dein Scripts-----------------------------------------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
+
+" Ward off unexpected things that your distro might have made, as
+" well as sanely reset options when re-sourcing .vimrc
+set nocompatible
+
+" Set Dein base path (required)
+let s:dein_base = expand('~/.vim/dein')
+
+" Set Dein source path (required)
+let s:dein_src = expand('~/.vim/dein/repos/github.com/Shougo/dein.vim')
+
+" Set Dein runtime path (required)
+execute 'set runtimepath+=' . s:dein_src
 
 " Required:
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+if dein#load_state(s:dein_base)
+  call dein#begin(s:dein_base)
 
-" Required:
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-
+  let s:toml_dir = expand('~/.config/nvim')
+  
   " Immediate load
   call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
 
@@ -26,18 +30,23 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
+" Attempt to determine the type of a file based on its name and possibly its
+" contents. Use this to allow intelligent auto-indenting for each filetype,
+" and for plugins that are filetype specific.
+if has('filetype')
+  filetype plugin indent on
 endif
 
-" Autommatically uninstall dein plugins
-" https://hodalog.com/how-to-remove-plugin-using-dein/
-let g:dein#auto_recache = 1
+" Enable syntax highlighting
+if has('syntax')
+  syntax on
+endif
+
+" Uncomment if you want to install not-installed plugins on startup.
+if dein#check_install()
+ call dein#install()
+endif
+
 " dein Scripts-----------------------------------------------------------
 
 set nu cb=unnamed
