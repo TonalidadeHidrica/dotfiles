@@ -37,10 +37,10 @@ if has('filetype')
   filetype plugin indent on
 endif
 
-" Enable syntax highlighting
-if has('syntax')
-  syntax on
-endif
+" " Enable syntax highlighting
+" if has('syntax')
+"   syntax on
+" endif
 
 " Uncomment if you want to install not-installed plugins on startup.
 if dein#check_install()
@@ -48,6 +48,13 @@ if dein#check_install()
 endif
 
 " dein Scripts-----------------------------------------------------------
+
+" vim-markdown の設定
+" 数式を有効に
+let g:vim_markdown_math = 1
+" 折りたたみを無効に
+let g:vim_markdown_folding_disabled = 1
+" syntax on より前に設定しておかないと、設定がうまく反映されないのでここに置く
 
 set nu cb=unnamed
 set backspace=indent,eol,start
@@ -424,8 +431,3 @@ if has("unix")
   endif
 endif
 
-" vim-markdown の設定
-" 数式を有効に
-let g:vim_markdown_math = 1
-" 折りたたみを無効に
-let g:vim_markdown_folding_disabled = 1
