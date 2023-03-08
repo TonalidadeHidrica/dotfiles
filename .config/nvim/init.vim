@@ -56,6 +56,22 @@ let g:vim_markdown_math = 1
 let g:vim_markdown_folding_disabled = 1
 " syntax on より前に設定しておかないと、設定がうまく反映されないのでここに置く
 
+" https://github.com/neovim/neovim/issues/9570
+" これを設定しないと Vim の起動に1秒くらいかかる。何故？
+" cb=unnamed もしくは unnamedplus をする前に実行する必要あり
+let g:clipboard = {
+\ 'name': 'win32yank',
+\ 'copy': {
+\    '+': 'win32yank.exe -i',
+\    '*': 'win32yank.exe -i',
+\  },
+\ 'paste': {
+\    '+': 'win32yank.exe -o',
+\    '*': 'win32yank.exe -o',
+\ },
+\ 'cache_enabled': 0,
+\ }
+
 set nu cb=unnamed
 set backspace=indent,eol,start
 syntax on
