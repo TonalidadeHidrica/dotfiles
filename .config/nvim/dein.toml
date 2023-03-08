@@ -9,15 +9,15 @@ repo = 'dag/vim-fish'
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 
-# 2020/9/16 File tree
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-# With persistent window accross tabs
-[[plugins]]
-repo = 'jistr/vim-nerdtree-tabs'
-# With Git status
-[[plugins]]
-repo = 'Xuyuanp/nerdtree-git-plugin'
+# # 2020/9/16 File tree
+# [[plugins]]
+# repo = 'scrooloose/nerdtree'
+# # With persistent window accross tabs
+# [[plugins]]
+# repo = 'jistr/vim-nerdtree-tabs'
+# # With Git status
+# [[plugins]]
+# repo = 'Xuyuanp/nerdtree-git-plugin'
 
 # 2020/9/16 toml syntax
 [[plugins]]
@@ -91,3 +91,7 @@ repo = 'DingDean/wgsl.vim'
 repo = 'godlygeek/tabular'
 [[plugins]]
 repo = 'preservim/vim-markdown'
+
+# Profile startup time
+[[plugins]]
+repo = 'dstein64/vim-startuptime'
