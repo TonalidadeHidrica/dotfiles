@@ -332,6 +332,9 @@ let g:coc_global_extensions = [
       \ ]
 " Coc 用設定 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+" Coc の type hint の色を変える
+autocmd ColorScheme * highlight CocInlayHint ctermfg=gray guifg=gray
+
 " カラースキーム
 set background=dark
 colorscheme hybrid
@@ -446,4 +449,3 @@ if has("unix")
     endif
   endif
 endif
-
