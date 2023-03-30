@@ -393,7 +393,7 @@ EOF
 " Setup Python path, to enable neovim python support
 " https://qiita.com/yuku_t/items/6db331e7084f88b43fe4
 let g:python_host_prog=$HOME.'/.neovim-python-envs/2/.venv/bin/python'
-let g:python3_host_prog=$HOME.'/.neovim-python-envs/3/.venv/bin/python'
+let g:python3_host_prog=$HOME.'/.pyenv/versions/neovim-3/bin/python'
 
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
 " let s:opam_share_dir = system("opam config var share")

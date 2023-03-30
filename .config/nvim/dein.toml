@@ -95,3 +95,11 @@ repo = 'preservim/vim-markdown'
 # Profile startup time
 [[plugins]]
 repo = 'dstein64/vim-startuptime'
+
+# MediaWiki (Wikipedia) syntax highlighting etc.
+[[plugins]]
+repo = 'chikamichi/mediawiki.vim'
+
+# GhostText (edit browser's textbox with vim)
+[[plugins]]
+repo = 'raghur/vim-ghost'
