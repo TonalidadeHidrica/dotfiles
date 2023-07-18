@@ -328,8 +328,8 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-docker',
       \ 'coc-yaml',
-      \ 'coc-grammarly',
       \ ]
+      " \ 'coc-grammarly',
 " Coc 用設定 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 " Coc の type hint の色を変える
