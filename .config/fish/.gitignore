@@ -23,3 +23,6 @@
 
 # I'm not sure what files these are
 /fishd.tmp.*
+
+# Autoclone override config
+/git-autoclone-config.txt
