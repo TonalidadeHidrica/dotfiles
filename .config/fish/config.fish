@@ -11,9 +11,6 @@ set SSH_AUTH_SOCK ~/.ssh/ssh-agent-socket
 export SSH_AUTH_SOCK  # ←この行がないと肝心の ssh-agent に環境変数が行かないよ！
 # SSH_AGENT_PID は諦めです
 
-# fish shell vi-like key bindings
-fish_vi_key_bindings
-
 # tree コマンドを必ず色付け(-C)、日本語表示可能に(-N: show character as-is)
 alias tree="tree -CN"
 # less コマンドを必ずas-isで表示(色付け出力とかを色がついた状態で受け取る)(-X)
