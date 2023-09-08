@@ -59,18 +59,23 @@ let g:vim_markdown_folding_disabled = 1
 " https://github.com/neovim/neovim/issues/9570
 " これを設定しないと Vim の起動に1秒くらいかかる。何故？
 " cb=unnamed もしくは unnamedplus をする前に実行する必要あり
-let g:clipboard = {
-\ 'name': 'win32yank',
-\ 'copy': {
-\    '+': 'win32yank.exe -i',
-\    '*': 'win32yank.exe -i',
-\  },
-\ 'paste': {
-\    '+': 'win32yank.exe -o',
-\    '*': 'win32yank.exe -o',
-\ },
-\ 'cache_enabled': 0,
-\ }
+" 追記：これ何の環境で起こるやつ？　わからないので一旦 WSL 関係として退避
+if has("unix")
+  if filereadable("/proc/version")
+    let g:clipboard = {
+    \ 'name': 'win32yank',
+    \ 'copy': {
+    \    '+': 'win32yank.exe -i',
+    \    '*': 'win32yank.exe -i',
+    \  },
+    \ 'paste': {
+    \    '+': 'win32yank.exe -o',
+    \    '*': 'win32yank.exe -o',
+    \ },
+    \ 'cache_enabled': 0,
+    \ }
+  endif
+endif
 
 set nu cb=unnamed
 set backspace=indent,eol,start
