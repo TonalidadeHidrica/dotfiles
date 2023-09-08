@@ -18,6 +18,11 @@
 !/functions/tex-watch.fish
 !/functions/pukiwiki-vim.fish
 !/functions/wget-auto.fish
+!/functions/git-show.fish
+!/functions/git-diff.fish
 
 # I'm not sure what files these are
 /fishd.tmp.*
+
+# Autoclone override config
+/git-autoclone-config.txt

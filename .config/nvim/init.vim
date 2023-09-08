@@ -56,6 +56,22 @@ let g:vim_markdown_math = 1
 let g:vim_markdown_folding_disabled = 1
 " syntax on より前に設定しておかないと、設定がうまく反映されないのでここに置く
 
+" https://github.com/neovim/neovim/issues/9570
+" これを設定しないと Vim の起動に1秒くらいかかる。何故？
+" cb=unnamed もしくは unnamedplus をする前に実行する必要あり
+let g:clipboard = {
+\ 'name': 'win32yank',
+\ 'copy': {
+\    '+': 'win32yank.exe -i',
+\    '*': 'win32yank.exe -i',
+\  },
+\ 'paste': {
+\    '+': 'win32yank.exe -o',
+\    '*': 'win32yank.exe -o',
+\ },
+\ 'cache_enabled': 0,
+\ }
+
 set nu cb=unnamed
 set backspace=indent,eol,start
 syntax on
@@ -312,9 +328,12 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-docker',
       \ 'coc-yaml',
-      \ 'coc-grammarly',
       \ ]
+      " \ 'coc-grammarly',
 " Coc 用設定 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+" Coc の type hint の色を変える
+autocmd ColorScheme * highlight CocInlayHint ctermfg=gray guifg=gray
 
 " カラースキーム
 set background=dark
@@ -374,7 +393,7 @@ EOF
 " Setup Python path, to enable neovim python support
 " https://qiita.com/yuku_t/items/6db331e7084f88b43fe4
 let g:python_host_prog=$HOME.'/.neovim-python-envs/2/.venv/bin/python'
-let g:python3_host_prog=$HOME.'/.neovim-python-envs/3/.venv/bin/python'
+let g:python3_host_prog=$HOME.'/.pyenv/versions/neovim-3/bin/python'
 
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
 " let s:opam_share_dir = system("opam config var share")
@@ -430,4 +449,3 @@ if has("unix")
     endif
   endif
 endif
-
