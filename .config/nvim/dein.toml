@@ -103,3 +103,7 @@ repo = 'chikamichi/mediawiki.vim'
 # GhostText (edit browser's textbox with vim)
 [[plugins]]
 repo = 'raghur/vim-ghost'
+
+# Undo tree
+[[plugins]]
+repo = 'mbbill/undotree'
