@@ -381,6 +381,7 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
     disable = {
+      "markdown",
     }
   },
   incremental_selection = {
