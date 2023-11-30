@@ -54,3 +54,8 @@ set -x N_PREFIX "$HOME/n"; contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PR
 if type -q pyenv
 	pyenv init - | source
 end
+
+if type -q win32yank.exe
+	alias pbcopy="win32yank.exe -i"
+	alias pbpaste="win32yank.exe -o"
+end
