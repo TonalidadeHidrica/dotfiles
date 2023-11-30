@@ -4,16 +4,16 @@ function git-autoclone
 		return 1
 	end
 	set url $argv[1]
-	if set results (string match -r -- '^https://github.com/([\w-]+)/([\w-]+)/?$' $url)
+	if set results (string match -r -- '^https://(github|gitlab).com/([\w.-]+)/([\w.-]+)/?$' $url)
 		set protocol "https"
-		set domain "github.com"
-		set user $results[2]
-		set name $results[3]
-	else if set results (string match -r -- '^git@github.com:([\w-]+)/([\w-]+).git$' $url)
+		set domain $results[2]".com"
+		set user $results[3]
+		set name $results[4]
+	else if set results (string match -r -- '^git@(github|gitlab).com:([\w.-]+)/([\w.-]+).git$' $url)
 		set protocol "ssh"
-		set domain "github.com"
-		set user $results[2]
-		set name $results[3]
+		set domain $results[2]".com"
+		set user $results[3]
+		set name $results[4]
 	else
 		echo "The URL could not be parsed."
 		return 1
