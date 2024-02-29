@@ -8,6 +8,7 @@
 	"rust-analyzer.procMacro.enable": true,
 	"rust-analyzer.diagnostics.disabled": ["unlinked-file", "type-mismatch"],
 	"rust-analyzer.checkOnSave.command": "clippy",
+	"rust-analyzer.inlayHints.typeHints.enable": false,
 	"languageserver": {
 		"haskell": {
 			"command": "haskell-language-server-wrapper",
