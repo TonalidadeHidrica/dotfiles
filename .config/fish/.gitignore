@@ -20,6 +20,7 @@
 !/functions/wget-auto.fish
 !/functions/git-show.fish
 !/functions/git-diff.fish
+!/functions/powershell-tmux.fish
 
 # I'm not sure what files these are
 /fishd.tmp.*
