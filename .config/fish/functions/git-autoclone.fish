@@ -9,11 +9,13 @@ function git-autoclone
 		set domain $results[2]".com"
 		set user $results[3]
 		set name $results[4]
+		set folder $results[2]
 	else if set results (string match -r -- '^git@(github|gitlab).com:([\w.-]+)/([\w.-]+).git$' $url)
 		set protocol "ssh"
 		set domain $results[2]".com"
 		set user $results[3]
 		set name $results[4]
+		set folder $results[2]
 	else
 		echo "The URL could not be parsed."
 		return 1
@@ -39,7 +41,7 @@ function git-autoclone
 	echo "Url:        $url"
 
 	cd
-	set dir "dev/git/com/github/$user"
+	set dir "dev/git/com/$folder/$user"
 	mkdir -p $dir
 	cd $dir
 	git clone $url
