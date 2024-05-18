@@ -8,3 +8,4 @@
 /.config/pulse/
 /.config/pypoetry/
 /.config/wvpa.toml
+/.config/rclone/
