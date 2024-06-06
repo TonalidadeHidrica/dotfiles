@@ -3,8 +3,6 @@ refreshenv
 
 Set-Alias -Name vim -Value nvim
 
-Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-
 Remove-Alias -Force -Name cd
 function cd {
     param (
@@ -64,3 +62,9 @@ $Env:VCPKGHOME="$env:USERPROFILE\dev\git\com\github\microsoft\vcpkg"
 $Env:PATH="$Env:PATH;$Env:VCPKGHOME\installed\x64-windows\bin"
 $Env:INCLUDE="$Env:INCLUDE;$Env:VCPKGHOME\installed\x64-windows\include"
 $Env:LIB="$Env:LIB;$Env:VCPKGHOME\installed\x64-windows\lib"
+
+# Vim mode
+Set-PSReadLineOption -EditMode Vi
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+
+Remove-PSReadLineKeyHandler -Chord "Ctrl+d"
