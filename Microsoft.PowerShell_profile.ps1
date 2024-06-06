@@ -41,20 +41,22 @@ function cd {
 # cd to current directory to store current path
 cd .
 
-# When started from WSL2, cd to home directory
-if ($env:WSL2_CURRENT_PID -ne $null) {
-    $directoryToCd = $env:USERPROFILE
-}
-# However, when spawned from powershell ran by tmux, cd to that directory
-if ($env:WSL2_PARENT_PID -ne $null) {
-    $directoryFile = "$env:USERPROFILE\.powershell-cd\$env:WSL2_PARENT_PID"
-    if (Test-Path $directoryFile) {
-        $directoryToCd = Get-Content $directoryFile
+function Init-Wsl-Cd-Sync {
+    # When started from WSL2, cd to home directory
+    if ($env:WSL2_CURRENT_PID -ne $null) {
+        $directoryToCd = $env:USERPROFILE
     }
-}
-# Actual cd
-if ($directoryToCd -ne $null) {
-    cd $directoryToCd
+    # However, when spawned from powershell ran by tmux, cd to that directory
+    if ($env:WSL2_PARENT_PID -ne $null) {
+        $directoryFile = "$env:USERPROFILE\.powershell-cd\$env:WSL2_PARENT_PID"
+        if (Test-Path $directoryFile) {
+            $directoryToCd = Get-Content $directoryFile
+        }
+    }
+    # Actual cd
+    if ($directoryToCd -ne $null) {
+        cd $directoryToCd
+    }
 }
 
 # vcpkg
