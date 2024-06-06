@@ -3,8 +3,6 @@ refreshenv
 
 Set-Alias -Name vim -Value nvim
 
-Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-
 Remove-Alias -Force -Name cd
 function cd {
     param (
@@ -43,20 +41,22 @@ function cd {
 # cd to current directory to store current path
 cd .
 
-# When started from WSL2, cd to home directory
-if ($env:WSL2_CURRENT_PID -ne $null) {
-    $directoryToCd = $env:USERPROFILE
-}
-# However, when spawned from powershell ran by tmux, cd to that directory
-if ($env:WSL2_PARENT_PID -ne $null) {
-    $directoryFile = "$env:USERPROFILE\.powershell-cd\$env:WSL2_PARENT_PID"
-    if (Test-Path $directoryFile) {
-        $directoryToCd = Get-Content $directoryFile
+function Init-Wsl-Cd-Sync {
+    # When started from WSL2, cd to home directory
+    if ($env:WSL2_CURRENT_PID -ne $null) {
+        $directoryToCd = $env:USERPROFILE
     }
-}
-# Actual cd
-if ($directoryToCd -ne $null) {
-    cd $directoryToCd
+    # However, when spawned from powershell ran by tmux, cd to that directory
+    if ($env:WSL2_PARENT_PID -ne $null) {
+        $directoryFile = "$env:USERPROFILE\.powershell-cd\$env:WSL2_PARENT_PID"
+        if (Test-Path $directoryFile) {
+            $directoryToCd = Get-Content $directoryFile
+        }
+    }
+    # Actual cd
+    if ($directoryToCd -ne $null) {
+        cd $directoryToCd
+    }
 }
 
 # vcpkg
@@ -64,3 +64,9 @@ $Env:VCPKGHOME="$env:USERPROFILE\dev\git\com\github\microsoft\vcpkg"
 $Env:PATH="$Env:PATH;$Env:VCPKGHOME\installed\x64-windows\bin"
 $Env:INCLUDE="$Env:INCLUDE;$Env:VCPKGHOME\installed\x64-windows\include"
 $Env:LIB="$Env:LIB;$Env:VCPKGHOME\installed\x64-windows\lib"
+
+# Vim mode
+Set-PSReadLineOption -EditMode Vi
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+
+Remove-PSReadLineKeyHandler -Chord "Ctrl+d"
