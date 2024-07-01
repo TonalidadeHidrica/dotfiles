@@ -5,7 +5,8 @@
 /.config/htop/
 /.config/iterm2/
 /.config/nvim/.netrwhist
+/.config/powershell/git-autoclone-config.txt
 /.config/pulse/
 /.config/pypoetry/
-/.config/wvpa.toml
 /.config/rclone/
+/.config/wvpa.toml
