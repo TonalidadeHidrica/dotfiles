@@ -70,3 +70,62 @@ Set-PSReadLineOption -EditMode Vi
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 Remove-PSReadLineKeyHandler -Chord "Ctrl+d"
+
+function git-autoclone {
+    param (
+        [string]$url
+    )
+
+    if (-not $url) {
+        Write-Host "Please specify the repository url."
+        return
+    }
+
+    $protocol = ""
+    $domain = ""
+    $user = ""
+    $name = ""
+
+    if ($url -match '^https://(github|gitlab).com/([\w.-]+)/([\w.-]+)/?$') {
+        $protocol = "https"
+        $domain = $matches[1] + ".com"
+        $user = $matches[2]
+        $name = $matches[3]
+    }
+    elseif ($url -match '^git@(github|gitlab).com:([\w.-]+)/([\w.-]+).git$') {
+        $protocol = "ssh"
+        $domain = $matches[1] + ".com"
+        $user = $matches[2]
+        $name = $matches[3]
+    }
+    else {
+        Write-Host "The URL could not be parsed."
+        return
+    }
+
+    if (Test-Path "$env:USERPROFILE\.config\powershell\git-autoclone-config.txt") {
+        $configLines = Get-Content "$env:USERPROFILE\.config\powershell\git-autoclone-config.txt"
+        foreach ($line in $configLines) {
+            $args = $line -split '\t'
+            if ($args.Count -ne 3) {
+                Write-Host "There is a line in git-autoclone-config.txt that doesn't have exactly 3 items"
+                return
+            }
+            if ($protocol -eq "ssh" -and $domain -eq $args[0] -and $user -eq $args[1]) {
+                $url = "git@$($args[2]):$user/$name"
+                break
+            }
+        }
+    }
+
+    Write-Host "Domain:     $domain"
+    Write-Host "Username:   $user"
+    Write-Host "Repository: $name"
+    Write-Host "Url:        $url"
+
+    $dir = "$env:USERPROFILE\dev\git\com\github\$user"
+    New-Item -ItemType Directory -Force -Path $dir | Out-Null
+    Set-Location -Path $dir
+    git clone $url
+    Set-Location -Path $name
+}
