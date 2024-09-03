@@ -59,3 +59,8 @@ if type -q win32yank.exe
 	alias pbcopy="win32yank.exe -i"
 	alias pbpaste="win32yank.exe -o"
 end
+
+# if type -q jenv
+# 	jenv init - | source
+# 	jenv enable-plugin export
+# end
