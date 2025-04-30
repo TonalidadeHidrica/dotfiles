@@ -1,8 +1,11 @@
 /.config/Autodesk/
 /.config/coc/
 /.config/evcxr/
+/.config/fontconfig
 /.config/gdrive3/
+/.config/gh
 /.config/git/
+/.config/go
 /.config/htop/
 /.config/iterm2/
 /.config/nvim/.netrwhist
