@@ -57,22 +57,22 @@ let g:vim_markdown_folding_disabled = 1
 " syntax on より前に設定しておかないと、設定がうまく反映されないのでここに置く
 
 " https://github.com/neovim/neovim/issues/9570
-" これを設定しないと Vim の起動に1秒くらいかかる。何故？
+" これを設定しないと Vim の起動に1秒くらいかかる。
 " cb=unnamed もしくは unnamedplus をする前に実行する必要あり
-" 追記：これ何の環境で起こるやつ？　わからないので一旦 WSL 関係として退避
+" WSL 以外の環境で起こるかどうかはよくわからないけど一旦 WSL のときだけ実行する
 if has("unix")
   if filereadable("/proc/version")
     let g:clipboard = {
-    \ 'name': 'win32yank',
+    \ 'name': 'xsel',
     \ 'copy': {
-    \    '+': 'win32yank.exe -i',
-    \    '*': 'win32yank.exe -i',
+    \    '+': ['xsel', '--nodetach', '-i', '-b'],
+    \    '*': ['xsel', '--nodetach', '-i', '-p'],
     \  },
     \ 'paste': {
-    \    '+': 'win32yank.exe -o',
-    \    '*': 'win32yank.exe -o',
+    \    '+': ['xsel', '-o', '-b'],
+    \    '*': ['xsel', '-o', '-p'],
     \ },
-    \ 'cache_enabled': 0,
+    \ 'cache_enabled': 1,
     \ }
   endif
 endif
