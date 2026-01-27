@@ -56,8 +56,8 @@ if type -q pyenv
 end
 
 if type -q win32yank.exe
-	alias pbcopy="win32yank.exe -i"
-	alias pbpaste="win32yank.exe -o"
+	alias pbcopy="xsel -i -b"
+	alias pbpaste='xsel -o -b | sed \'s/\r$//\''
 end
 
 # if type -q jenv
