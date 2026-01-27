@@ -68,7 +68,9 @@ $Env:LIB="$Env:LIB;$Env:VCPKGHOME\installed\x64-windows\lib"
 # Vim mode
 Set-PSReadLineOption -EditMode Vi
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-
+Set-PSReadLineKeyHandler -Chord F8 -Function HistorySearchBackward
+Set-PSReadLineKeyHandler -Chord F9 -Function HistorySearchForward
+Set-PSReadLineKeyHandler -Chord "Ctrl+w" -Function UnixWordRubout
 Remove-PSReadLineKeyHandler -Chord "Ctrl+d"
 
 function git-autoclone {
