@@ -69,8 +69,8 @@ if has("unix")
     \    '*': ['xsel', '--nodetach', '-i', '-p'],
     \  },
     \ 'paste': {
-    \    '+': ['xsel', '-o', '-b'],
-    \    '*': ['xsel', '-o', '-p'],
+    \    '+': ["bash", "-c", "xsel -o -b | sed 's/\r$//'"],
+    \    '*': ["bash", "-c", "xsel -o -p | sed 's/\r$//'"],
     \ },
     \ 'cache_enabled': 1,
     \ }
