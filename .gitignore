@@ -13,4 +13,5 @@
 /.config/pulse/
 /.config/pypoetry/
 /.config/rclone/
+/.config/systemd/
 /.config/wvpa.toml
