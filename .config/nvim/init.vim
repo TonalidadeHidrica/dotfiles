@@ -456,3 +456,17 @@ if has("unix")
     endif
   endif
 endif
+
+" nvim-lsp configuration
+lua <<EOF
+-- Only Lean will use the built-in LSP; CoC stays in charge of everything else
+require('lean').setup{
+  lsp = {
+    on_attach = function(client, bufnr)
+      -- Optional: Define Lean-specific keymaps here so they 
+      -- don't conflict with your global CoC maps
+    end,
+  },
+  mappings = true, -- This gives you the essential Lean shortcuts
+}
+EOF
