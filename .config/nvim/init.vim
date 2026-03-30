@@ -502,7 +502,14 @@ require('blink.cmp').setup({
     -- Based on 'enter' preset, but customzied
     ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
     ['<C-e>'] = { 'hide', 'fallback' },
-    ['<CR>'] = { 'accept', 'fallback' },
+    ['<CR>'] = {
+      'accept',
+      function()
+        local enter = vim.api.nvim_replace_termcodes("<CR>", true, false, true)
+        vim.api.nvim_feedkeys(enter, "n", false)
+        return true
+      end,
+    },
 
     -- Let 'tab' key open the copmletion...
     ['<Tab>'] = {
