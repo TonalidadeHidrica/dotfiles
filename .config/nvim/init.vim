@@ -478,7 +478,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       local opts = { buffer = event.buf, silent = true }
       
       -- These buffer-local maps will reliably overwrite CoC's global maps
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+      vim.keymap.set('n', 'gd', '<cmd>tab split | lua vim.lsp.buf.definition()<CR>', opts)
       vim.keymap.set('n', 'K',  vim.lsp.buf.hover, opts)
       vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
       vim.keymap.set('n', '<leader>a',  vim.lsp.buf.code_action, opts)
