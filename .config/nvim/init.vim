@@ -504,7 +504,21 @@ require('blink.cmp').setup({
     ['<C-e>'] = { 'hide', 'fallback' },
     ['<CR>'] = { 'accept', 'fallback' },
 
-    ['<Tab>'] = { 'show', 'select_next', 'fallback' },
+    -- Let 'tab' key open the copmletion...
+    ['<Tab>'] = {
+      function(cmp)
+        -- unless there is only whitespace before cursor (i.e. the user really want to type tab)
+        local col = vim.api.nvim_win_get_cursor(0)[2]
+        local char_before = vim.api.nvim_get_current_line():sub(col, col)
+        if col == 0 or char_before:match('%s') then
+          return false
+        else
+          return cmp.show()
+        end
+      end,
+      'select_next',
+      'fallback',
+    },
     ['<S-Tab>'] = { 'select_prev', 'fallback' },
 
     ['<Up>'] = { 'select_prev', 'fallback' },
