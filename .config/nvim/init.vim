@@ -135,7 +135,7 @@ augroup fileTypeIndent
   autocmd!
   autocmd FileType python,julia setlocal shiftwidth=4 softtabstop=4 expandtab
   autocmd FileType haskell setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
-  autocmd FileType vim setlocal expandtab
+  autocmd FileType vim,lean setlocal expandtab
 augroup end
 
 " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^
@@ -499,8 +499,16 @@ require('blink.cmp').setup({
     return vim.bo.filetype == 'lean'
   end,
   keymap = {
-    preset = 'enter',
-    ['<Tab>'] = { 'show' },
+    -- Based on 'enter' preset, but customzied
+    ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+    ['<C-e>'] = { 'hide', 'fallback' },
+    ['<CR>'] = { 'accept', 'fallback' },
+
+    ['<Tab>'] = { 'show', 'select_next', 'fallback' },
+    ['<S-Tab>'] = { 'select_prev', 'fallback' },
+
+    ['<Up>'] = { 'select_prev', 'fallback' },
+    ['<Down>'] = { 'select_next', 'fallback' },
   },
   completion = {
     auto_show = true,
