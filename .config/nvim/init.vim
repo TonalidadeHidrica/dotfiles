@@ -461,12 +461,31 @@ endif
 lua <<EOF
 -- Only Lean will use the built-in LSP; CoC stays in charge of everything else
 require('lean').setup{
-  lsp = {
-    on_attach = function(client, bufnr)
-      -- Optional: Define Lean-specific keymaps here so they 
-      -- don't conflict with your global CoC maps
-    end,
-  },
   mappings = true, -- This gives you the essential Lean shortcuts
 }
+
+-- 2. The up-to-date Neovim 0.12+ way to handle LSP attachments
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions specific to Lean',
+  callback = function(event)
+    -- Identify which language server just attached
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    
+    -- If the server is leanls, apply the buffer-local keymaps
+    if client and client.name == 'leanls' then
+      local opts = { buffer = event.buf, silent = true }
+      
+      -- These buffer-local maps will reliably overwrite CoC's global maps
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+      vim.keymap.set('n', 'K',  vim.lsp.buf.hover, opts)
+      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+      vim.keymap.set('n', '<leader>a',  vim.lsp.buf.code_action, opts)
+      vim.keymap.set('n', '[g', vim.diagnostic.goto_prev, opts)
+      vim.keymap.set('n', ']g', vim.diagnostic.goto_next, opts)
+      
+      -- The "Footprint": A reliable way to prove this function executed
+      vim.notify("Lean LSP attached and keys mapped!", vim.log.levels.INFO)
+    end
+  end,
+})
 EOF
