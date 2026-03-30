@@ -119,3 +119,9 @@ repo = 'nvim-lua/plenary.nvim'
 # Lean 4
 [[plugins]]
 repo = 'Julian/lean.nvim'
+
+# Snippet plugin
+[[plugins]]
+repo = 'saghen/blink.cmp'
+rev = 'v1.10.1'
+build = 'cargo build --release'

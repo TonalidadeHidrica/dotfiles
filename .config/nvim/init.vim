@@ -468,6 +468,8 @@ require('lean').setup{
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions specific to Lean',
   callback = function(event)
+    vim.cmd("CocDisable")
+
     -- Identify which language server just attached
     local client = vim.lsp.get_client_by_id(event.data.client_id)
     
@@ -486,6 +488,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
       -- The "Footprint": A reliable way to prove this function executed
       vim.notify("Lean LSP attached and keys mapped!", vim.log.levels.INFO)
     end
+  end,
+})
+EOF
+
+" blink.cmp configs
+lua <<EOF
+require('blink.cmp').setup({
+  enabled = function()
+    return vim.bo.filetype == 'lean'
   end,
 })
 EOF
