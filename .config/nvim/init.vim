@@ -532,8 +532,10 @@ require('blink.cmp').setup({
     ['<Down>'] = { 'select_next', 'fallback' },
   },
   completion = {
-    auto_show = true,
-    auto_show_delay_ms = 500,
+    menu = {
+      auto_show = true,
+      auto_show_delay_ms = 500,
+    },
   },
 })
 EOF
