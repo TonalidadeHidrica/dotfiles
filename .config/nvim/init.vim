@@ -367,9 +367,12 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 function! EditorialMode()
-  set wrap expandtab syntax=markdown spell
+  set wrap expandtab syntax=markdown scrollbind cursorbind cursorline spell
+  if exists('$SPELLFILE') && !empty($SPELLFILE)
+    execute 'set spellfile=' . fnameescape($SPELLFILE)
+  endif
   wincmd l
-  set wrap expandtab syntax=markdown
+  set wrap expandtab syntax=markdown scrollbind cursorbind cursorline
   wincmd h
 endfunction
 
