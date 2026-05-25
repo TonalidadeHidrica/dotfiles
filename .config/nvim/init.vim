@@ -542,3 +542,8 @@ require('blink.cmp').setup({
   },
 })
 EOF
+
+" Lean file
+augroup leanEditorBehavior
+  autocmd FileType lean setlocal colorcolumn=100 virtualedit=onemore
+augroup end
