@@ -5,37 +5,31 @@ Set-Alias -Name vim -Value nvim
 
 Remove-Alias -Force -Name cd
 function cd {
-    param (
-        [string]$Path
-    )
-
-    # Check if $Path is empty, if so, assign $USERPROFILE
-    if ([string]::IsNullOrEmpty($Path)) {
-        $Path = $env:USERPROFILE
+    # If no arguments are passed, emulate bash behavior and go to the User Profile
+    if ($args.Count -eq 0) {
+        Set-Location $env:USERPROFILE
+    } else {
+        # Pass all arguments exactly as typed to Set-Location
+        Set-Location @args
     }
 
-    # Get the WSL2 PID
-    $wsl2_pid = $env:WSL2_CURRENT_PID
+    # $? is a built-in variable that is $true if the last command succeeded
+    if ($?) {
+        $wsl2_pid = $env:WSL2_CURRENT_PID
+        
+        if ($null -ne $wsl2_pid) {
+            # Ensure the tracking directory exists
+            $dir_path = Join-Path -Path $env:USERPROFILE -ChildPath ".powershell-cd"
+            if (-not (Test-Path -Path $dir_path)) {
+                New-Item -Path $dir_path -ItemType Directory -Force | Out-Null
+            }
 
-    # Check if the WSL2 PID environment variable is set
-    if ($wsl2_pid -ne $null) {
-        # Define the path to the file
-        $file_path = Join-Path -Path $env:USERPROFILE -ChildPath ".powershell-cd\$wsl2_pid"
+            $file_path = Join-Path -Path $dir_path -ChildPath $wsl2_pid
 
-        # Check if the directory exists, if not, create it
-        if (!(Test-Path -Path $file_path)) {
-            New-Item -Path $file_path -ItemType File -Force > $null
+            # $PWD.ProviderPath cleanly gets the true absolute path of the new location
+            Set-Content -Path $file_path -Value $PWD.ProviderPath
         }
-
-        # Convert $Path to absolute path
-        $absolute_path = Convert-Path -Path $Path
-
-        # Append the destination to the file
-        Set-Content -Path $file_path -Value $absolute_path
     }
-
-    # Call the original cd command to change directory
-    Set-Location $Path
 }
 
 # cd to current directory to store current path
