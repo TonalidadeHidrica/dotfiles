@@ -125,3 +125,7 @@ repo = 'Julian/lean.nvim'
 repo = 'saghen/blink.cmp'
 rev = 'v1.10.1'
 build = 'cargo build --release'
+
+# Emmet
+[[plugins]]
+repo = 'mattn/emmet-vim'

@@ -15,3 +15,4 @@
 /.config/rclone/
 /.config/systemd/
 /.config/wvpa.toml
+/.config/yarn/

@@ -136,6 +136,7 @@ augroup fileTypeIndent
   autocmd FileType python,julia setlocal shiftwidth=4 softtabstop=4 expandtab
   autocmd FileType haskell setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
   autocmd FileType vim,lean setlocal expandtab
+  autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 augroup end
 
 " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^
@@ -547,3 +548,6 @@ EOF
 augroup leanEditorBehavior
   autocmd FileType lean setlocal colorcolumn=100 virtualedit=onemore
 augroup end
+
+" Emmet
+let g:user_emmet_leader_key='<C-E>'
