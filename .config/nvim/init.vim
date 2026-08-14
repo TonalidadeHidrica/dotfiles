@@ -464,7 +464,7 @@ endif
 " nvim-lsp configuration
 lua <<EOF
 -- Only Lean will use the built-in LSP; CoC stays in charge of everything else
-require('lean').setup{
+vim.g.lean_config = {
   mappings = true, -- This gives you the essential Lean shortcuts
 }
 
