@@ -13,4 +13,7 @@
 /.config/pulse/
 /.config/pypoetry/
 /.config/rclone/
+/.config/systemd/
+/.config/uv/
 /.config/wvpa.toml
+/.config/yarn/

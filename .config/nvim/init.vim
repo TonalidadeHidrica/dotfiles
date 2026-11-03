@@ -57,22 +57,22 @@ let g:vim_markdown_folding_disabled = 1
 " syntax on より前に設定しておかないと、設定がうまく反映されないのでここに置く
 
 " https://github.com/neovim/neovim/issues/9570
-" これを設定しないと Vim の起動に1秒くらいかかる。何故？
+" これを設定しないと Vim の起動に1秒くらいかかる。
 " cb=unnamed もしくは unnamedplus をする前に実行する必要あり
-" 追記：これ何の環境で起こるやつ？　わからないので一旦 WSL 関係として退避
+" WSL 以外の環境で起こるかどうかはよくわからないけど一旦 WSL のときだけ実行する
 if has("unix")
   if filereadable("/proc/version")
     let g:clipboard = {
-    \ 'name': 'win32yank',
+    \ 'name': 'xsel',
     \ 'copy': {
-    \    '+': 'win32yank.exe -i',
-    \    '*': 'win32yank.exe -i',
+    \    '+': ['xsel', '--nodetach', '-i', '-b'],
+    \    '*': ['xsel', '--nodetach', '-i', '-p'],
     \  },
     \ 'paste': {
-    \    '+': 'win32yank.exe -o',
-    \    '*': 'win32yank.exe -o',
+    \    '+': ["bash", "-c", "xsel -o -b | sed 's/\r$//'"],
+    \    '*': ["bash", "-c", "xsel -o -p | sed 's/\r$//'"],
     \ },
-    \ 'cache_enabled': 0,
+    \ 'cache_enabled': 1,
     \ }
   endif
 endif
@@ -135,7 +135,8 @@ augroup fileTypeIndent
   autocmd!
   autocmd FileType python,julia setlocal shiftwidth=4 softtabstop=4 expandtab
   autocmd FileType haskell setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
-  autocmd FileType vim setlocal expandtab
+  autocmd FileType vim,lean setlocal expandtab
+  autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 augroup end
 
 " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^
@@ -367,9 +368,12 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 function! EditorialMode()
-  set wrap expandtab syntax=markdown spell
+  set wrap expandtab syntax=markdown scrollbind cursorbind cursorline spell
+  if exists('$SPELLFILE') && !empty($SPELLFILE)
+    execute 'set spellfile=' . fnameescape($SPELLFILE)
+  endif
   wincmd l
-  set wrap expandtab syntax=markdown
+  set wrap expandtab syntax=markdown scrollbind cursorbind cursorline
   wincmd h
 endfunction
 
@@ -456,3 +460,94 @@ if has("unix")
     endif
   endif
 endif
+
+" nvim-lsp configuration
+lua <<EOF
+-- Only Lean will use the built-in LSP; CoC stays in charge of everything else
+vim.g.lean_config = {
+  mappings = true, -- This gives you the essential Lean shortcuts
+}
+
+-- 2. The up-to-date Neovim 0.12+ way to handle LSP attachments
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions specific to Lean',
+  callback = function(event)
+    vim.cmd("CocDisable")
+
+    -- Identify which language server just attached
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    
+    -- If the server is leanls, apply the buffer-local keymaps
+    if client and client.name == 'leanls' then
+      local opts = { buffer = event.buf, silent = true }
+      
+      -- These buffer-local maps will reliably overwrite CoC's global maps
+      vim.keymap.set('n', 'gd', '<cmd>tab split | lua vim.lsp.buf.definition()<CR>', opts)
+      vim.keymap.set('n', 'K',  vim.lsp.buf.hover, opts)
+      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+      vim.keymap.set('n', '<leader>a',  vim.lsp.buf.code_action, opts)
+      vim.keymap.set('n', '[g', vim.diagnostic.goto_prev, opts)
+      vim.keymap.set('n', ']g', vim.diagnostic.goto_next, opts)
+      
+      -- The "Footprint": A reliable way to prove this function executed
+      vim.notify("Lean LSP attached and keys mapped!", vim.log.levels.INFO)
+    end
+  end,
+})
+EOF
+
+" blink.cmp configs
+lua <<EOF
+require('blink.cmp').setup({
+  enabled = function()
+    return vim.bo.filetype == 'lean'
+  end,
+  keymap = {
+    -- Based on 'enter' preset, but customzied
+    ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+    ['<C-e>'] = { 'hide', 'fallback' },
+    ['<CR>'] = {
+      'accept',
+      function()
+        local enter = vim.api.nvim_replace_termcodes("<CR>", true, false, true)
+        vim.api.nvim_feedkeys(enter, "n", false)
+        return true
+      end,
+    },
+
+    -- Let 'tab' key open the copmletion...
+    ['<Tab>'] = {
+      function(cmp)
+        -- unless there is only whitespace before cursor (i.e. the user really want to type tab)
+        local col = vim.api.nvim_win_get_cursor(0)[2]
+        local char_before = vim.api.nvim_get_current_line():sub(col, col)
+        if col == 0 or char_before:match('%s') then
+          return false
+        else
+          return cmp.show()
+        end
+      end,
+      'select_next',
+      'fallback',
+    },
+    ['<S-Tab>'] = { 'select_prev', 'fallback' },
+
+    ['<Up>'] = { 'select_prev', 'fallback' },
+    ['<Down>'] = { 'select_next', 'fallback' },
+  },
+  completion = {
+    menu = {
+      auto_show = true,
+      auto_show_delay_ms = 500,
+    },
+  },
+})
+EOF
+
+" Lean file
+augroup leanEditorBehavior
+  autocmd FileType lean setlocal colorcolumn=100 virtualedit=onemore
+augroup end
+
+" Emmet
+let g:user_emmet_leader_key='<C-E>'

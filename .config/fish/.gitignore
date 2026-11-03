@@ -1,5 +1,5 @@
 # The following files are local scope and shuold not be tracked
-/fish_variables
+/fish_variables*
 /local.fish
 
 # The contents in this directory will be managed by fisher and should not be tracked by git...

@@ -60,6 +60,7 @@ repo = 'voldikss/vim-mma'
 # treesitter
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
+rev = 'master'
 merged = 0
 
 # JSONC support (for coc-settings.json)
@@ -107,3 +108,25 @@ repo = 'raghur/vim-ghost'
 # Undo tree
 [[plugins]]
 repo = 'mbbill/undotree'
+
+# LSP config (in the future I want to transition from coc to nvim...)
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+
+# plenary.nvim (Dependency of lean.nvim)
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+# Lean 4
+[[plugins]]
+repo = 'Julian/lean.nvim'
+
+# Snippet plugin
+[[plugins]]
+repo = 'saghen/blink.cmp'
+rev = 'v1.10.1'
+build = 'cargo build --release'
+
+# Emmet
+[[plugins]]
+repo = 'mattn/emmet-vim'
