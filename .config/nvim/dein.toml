@@ -60,6 +60,7 @@ repo = 'voldikss/vim-mma'
 # treesitter
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
+rev = 'master'
 merged = 0
 
 # JSONC support (for coc-settings.json)
