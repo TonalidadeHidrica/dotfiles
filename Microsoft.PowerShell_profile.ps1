@@ -65,6 +65,7 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineKeyHandler -Chord F8 -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Chord F9 -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Chord "Ctrl+w" -Function UnixWordRubout
+Set-PSReadLineKeyHandler -Chord "Ctrl+w" -ViMode Insert -Function BackwardKillWord
 Remove-PSReadLineKeyHandler -Chord "Ctrl+d"
 
 function git-autoclone {
